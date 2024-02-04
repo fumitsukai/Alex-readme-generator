@@ -39,6 +39,16 @@ const questions = [
         type: 'input',
         name: 'contribution',
         message: 'How to contribute? '
+    },
+    {
+        type: 'input',
+        name: 'git',
+        message: 'What is your git profile?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?'
     }
 ];
 
@@ -53,7 +63,13 @@ function writeToFile(fileName, data) {
 // function to initialize program
 function init() {
     const prompt = inquirer.createPromptModule();
-    prompt(questions).then(answer => writeToFile('./output/readme.md', answer));
+    prompt(questions).then(answer => {
+        if(answer.choices === 'MIT') {
+            answer.choices = 'This is a test'
+            console.log(answer.choices);
+        }
+        writeToFile('./output/readme.md', answer)
+    });
 }
 
 // function call to initialize program
