@@ -5,15 +5,43 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user
 const questions = [
-    "Enter Project Name: ",
-    "Type a short description of the project: ",
-    "How to install and Run the Project? ",
-    "How do you use the project? ",
-    "Choose a licence: ",
-    "How to contribute?"
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Enter Project Name: '
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Type a short description of the project: '
+    },
+    {
+        type: 'input',
+        name: 'install',
+        message: 'How to install and Run the Project? '
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'How do you use the project? '
+    },
+    {
+        type: 'list',
+        name: 'licence',
+        message: 'Choose a licence: ',
+        choices: [
+            'MIT',
+            'Apache Licence 2.0',
+            'GNU GPLv3'
+        ]
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'How to contribute? '
+    }
 ];
 
-const [title, description, install, usage, licence, contribution] = questions;
 
 // function to write README file
 function writeToFile(fileName, data) {
@@ -24,8 +52,10 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
-
+    const prompt = inquirer.createPromptModule();
+    prompt(questions).then(answer => writeToFile('./output/readme.md', answer));
 }
 
 // function call to initialize program
 init();
+
