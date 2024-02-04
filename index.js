@@ -55,7 +55,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName,generateMarkdown(data), err => {
+    fs.writeFile(fileName, generateMarkdown(data), err => {
         err ? console.log(err) : console.log("succcess");
     })
 }
@@ -63,13 +63,8 @@ function writeToFile(fileName, data) {
 // function to initialize program
 function init() {
     const prompt = inquirer.createPromptModule();
-    prompt(questions).then(answer => {
-        if(answer.choices === 'MIT') {
-            answer.choices = 'This is a test'
-            console.log(answer.choices);
-        }
-        writeToFile('./output/readme.md', answer)
-    });
+    prompt(questions).then(answer => 
+        writeToFile('./output/readme.md', answer));
 }
 
 // function call to initialize program
