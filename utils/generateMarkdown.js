@@ -10,7 +10,7 @@ ${data.description}
 
 [Installation](#installation)  
 [Usage](#usage)  
-[Credits](#credits)
+[Credits](#credits)  
 [License](#license)  
 
 ## Installation
@@ -21,13 +21,17 @@ ${data.install}
 
 ${data.usage}
 
+## Credits
+
+${data.credits}
+
 ## License
 
 This application is covered under the ${data.licence} licence.
 
 ## How to Contribute
 
-${data.contibution}
+${data.contribution}
 
 ## Questions
 

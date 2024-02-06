@@ -26,6 +26,11 @@ const questions = [
         message: 'How do you use the project? '
     },
     {
+        type: 'input',
+        name: 'credits',
+        message: 'Would you like to credit anyone?'
+    },
+    {
         type: 'list',
         name: 'licence',
         message: 'Choose a licence: ',
@@ -38,7 +43,7 @@ const questions = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'How to contribute? '
+        message: 'How to contribute?'
     },
     {
         type: 'input',
@@ -47,7 +52,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'email',
+        name: 'email', 
         message: 'What is your email address?'
     }
 ];
@@ -63,7 +68,7 @@ function writeToFile(fileName, data) {
 // function to initialize program
 function init() {
     const prompt = inquirer.createPromptModule();
-    prompt(questions).then(answer => 
+    prompt(questions).then(answer =>
         writeToFile('./output/readme.md', answer));
 }
 
